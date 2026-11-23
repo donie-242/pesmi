@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+
+class DashboardController extends Controller
+{
+    public function index(Request $request): View
+    {
+        $user = $request->user();
+        $registration = $user->registration;
+
+        return view('dashboard', [
+            'user' => $user,
+            'registration' => $registration,
+        ]);
+    }
+}
